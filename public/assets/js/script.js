@@ -28,7 +28,7 @@ fetchApi = async () => {
                 </div>    
                 <div class="imgPokeType">
                     <h2>Type :</h2>
-                    <img src="assets/img/${pokeType}.png" alt="${pokeType} picture">
+                    <img src="public/assets/img/${pokeType}.png" alt="${pokeType} picture">
                 </div>
             </div>
         </div>
