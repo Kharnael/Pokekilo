@@ -1,39 +1,5 @@
-//Step 1 : tableau à 0
-//step 2 : si LS contient des data, alors injecte les dans le tableau
-//step 3 : dans les data dans le panier dans le cas ou il y a des datas, sinon rien.
-//step 4 : l'utilisateur ajoute au panier
-// => en ajoutant au panier, il ajoute dans l'array, qui ajoute dans le LS.
-//step 5 : affichage du panier ( avec calcul du prix total)
-// nom du pokemon id prix quantité
-
 //Demarrage avec un array "cartArray à 0"
 let cartArray = [];
-
-// fonction ajouter au panier
-addToCart = () => {
-    let pokeId = 3;             //value dans le HTML
-    let pokeName = 'kikoo3';     //value dans le HTML
-    let pokePrice = 12;         //value dans le HTML
-
-    // /!\ resultz permet de savoir si le pokemon est DEJA dans le panier. /!\
-    let resultz = cartArray.find(nameOf => nameOf.name === pokeName);
-    //Si le tableau est vide, alors pas de question go push...
-    if (cartArray.length == 0) {
-        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
-
-        //Si le tableau est pas vide et que le pokemon est déja dans le panier, alors ajoute 1 à Qty
-    } else if (resultz != undefined) { 
-                cartArray.forEach(element => {
-                if (element.name == pokeName) {element.Qty ++;}
-                })
-                
-        //Sinon (le pokemon est pas dans le panier) ajoute le avec une Qty de 1        
-    } else if (resultz == undefined) { 
-        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
-    }
-
-addToLocalStorage();
-}
 
 //============== gestion Array/LocalStorage ===============================
 
@@ -52,9 +18,43 @@ addToLocalStorage = () => {
     localStorage.setItem('cartData', JSON.stringify(cartArray))
 }
 
+// fonction ajouter au panier
+addToCart = () => {
+    let pokeId = 2;                 //value dans le HTML    => A supprimer une fois les values dispo dans le HTML
+    let pokeName = 'kikoo2';        //value dans le HTML   => A supprimer une fois les values dispo dans le HTML
+    let pokePrice = 22;             //value dans le HTML    => A supprimer une fois les values dispo dans le HTML
+
+    // /!\ resultz permet de savoir si le pokemon est DEJA dans le panier. /!\
+    let resultz = cartArray.find(nameOf => nameOf.name === pokeName);
+
+        //Si le tableau est pas vide et que le pokemon est déja dans le panier, alors ajoute 1 à Qty
+    if (resultz != undefined) { 
+                cartArray.forEach(element => {
+                if (element.name == pokeName) {element.Qty ++;
+                    // on est des fous, on calcul le prix total en fonction de la quantité dans la fonction addtocart! 
+                    let newPrice = parseFloat(element.price) + parseFloat(pokePrice);
+                    element.price = newPrice;
+                }})
+
+        //Sinon (le pokemon est pas dans le panier) donc ajoute le avec une Qty de 1        
+    } else if (resultz == undefined) { 
+        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
+    }
+addToLocalStorage();
+}
+
 //eventListener
 // idAddToCartFromHTML.addEventListener('click', addToCart())
 // idRemoveFromCartFromHTML.addEventLister('click' removeFromCart())
+
+//Calcul du prix total
+CalculOfTotalPrice = () => {
+    let totalPrice = 0;
+    cartArray.forEach(element => {
+        totalPrice += parseFloat(element.price);
+    });
+    console.log(totalPrice);
+}
 
 // Au chargement de la page, si le local storage n'est pas vide
 // alors il alimente le cartArray sinon, bah il se passe rien quoi.
