@@ -4,7 +4,15 @@
 .card-img-top{
     width: 3rem;
     height: 3rem;
+    margin: auto;
 }
 .list-group-item img{
     width: 80px;
+    margin: auto;
+}
+
+body{
+    background-image: url(../img/background-night.png);
+    background-size: 100%;
+    background-attachment: fixed ;
 }
