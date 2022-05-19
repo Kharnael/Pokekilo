@@ -11,19 +11,30 @@ let cartArray = [];
 
 // fonction ajouter au panier
 addToCart = () => {
-    let pokeId = 1;             //value dans le HTML
-    let pokeName = 'kikoo';     //value dans le HTML
+    let pokeId = 3;             //value dans le HTML
+    let pokeName = 'kikoo3';     //value dans le HTML
     let pokePrice = 12;         //value dans le HTML
-    cartArray.forEach(element => {
-        if (element.id == pokeId) {
-            console.log(element.Qty);
-        // cartArray.element.Qty += 1;
-    } else {
-    cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
+
+    // /!\ resultz permet de savoir si le pokemon est DEJA dans le panier. /!\
+    let resultz = cartArray.find(nameOf => nameOf.name === pokeName);
+    //Si le tableau est vide, alors pas de question go push...
+    if (cartArray.length == 0) {
+        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
+
+        //Si le tableau est pas vide et que le pokemon est déja dans le panier, alors ajoute 1 à Qty
+    } else if (resultz != undefined) { 
+                cartArray.forEach(element => {
+                if (element.name == pokeName) {element.Qty ++;}
+                })
+                
+        //Sinon (le pokemon est pas dans le panier) ajoute le avec une Qty de 1        
+    } else if (resultz == undefined) { 
+        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
     }
-    addToLocalStorage();
-})
+
+addToLocalStorage();
 }
+
 //============== gestion Array/LocalStorage ===============================
 
 //add to array
