@@ -19,17 +19,16 @@ fetchApi = async () => {
         <div class="pokeCards">
             <img class="imgPokeAnimated" src="${imgPoke}" alt="${pokeName} picture">
             <div class="pokeDescAndType">
-                <div class="pokeFullDescription">
-                    <h2>${pokeName}</h2>
-                    <p>${pokeDescription}</p>
-                    <p>Poids : ${pokeWeight}</p>
-                    <p>Réf : ${pokeId}</p>
-                    <p>Prix : ${pokePrice}€</p>
-                </div>    
+            <h2 class="pokeNameTitle">${pokeName}</h2>
                 <div class="imgPokeType">
-                    <h2>Type :</h2>
                     <img src="public/assets/img/${pokeType}.png" alt="${pokeType} picture">
                 </div>
+                <div class="pokeFullDescription">
+                    <p>${pokeDescription}</p>
+                    <p>Poids : ${pokeWeight} Kg</p>
+                    <p>Pokédex N° : ${pokeId}</p>
+                    <p>Prix : ${pokePrice}€</p>
+                </div>    
             </div>
         </div>
         `;
