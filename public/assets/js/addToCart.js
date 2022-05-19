@@ -17,7 +17,7 @@ addToCart = () => {
     cartArray.forEach(element => {
         if (element.id == pokeId) {
             console.log(element.Qty);
-        element.Qty += 1;
+        // cartArray.element.Qty += 1;
     } else {
     cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokePrice}`, Qty:1});
     }
@@ -30,7 +30,7 @@ addToCart = () => {
 addToArray = () => {
     let LSdata = JSON.parse(localStorage.getItem('cartData'));
     LSdata.forEach(element => {
-        cartArray.push({id:`${element.id}`, name:`${element.name}`, price:`${element.price}`}); //mettre dans le push les key/value du tablobjet 'cartArray'
+        cartArray.push({id:`${element.id}`, name:`${element.name}`, price:`${element.price}`, Qty:`${element.Qty}`}); //mettre dans le push les key/value du tablobjet 'cartArray'
     });
 }
 
