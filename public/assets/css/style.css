@@ -1,73 +1,10 @@
-*{
-    margin:0px; 
-    padding: 0px; 
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
-    overflow-x: hidden;
+.card{
+    width: 12rem;
 }
-h1 {
-    font-size: 20px;
+.card-img-top{
+    width: 3rem;
+    height: 3rem;
 }
-body {
-    width: 100vw;
-    background-color: black;
-    color: white;
-}
-header {
-    display: flex;
-    justify-content: center;
-}
-main {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-#test {
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1vh;
-    padding-left: 5%;
-}
-.pokeCards {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid white;
-    border-radius: 10px;
-    padding: 1%;
-    background-color: #dc3545;
-}
-.imgPokeAnimated {
-    height: 75px;
-    object-fit: contain;
-    object-position: center center;
-}
-.pokeFullDescription {
-    flex: 3;
-}
-.imgPokeType {
-    flex: 1.6;
-    
-    object-fit: contain;
-}
-.imgPokeType img {
-    max-width: 100%;
-    max-height: 100%;
-}
-.pokeDescAndType {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-.pokeFullDescription p, .pokeFullDescription h2 {
-    width: 100%;
-    text-align: justify;
-}
-.pokeNameTitle {
-    text-align: center;
-    font-size: 1.3em;
+.list-group-item img{
+    width: 80px;
 }

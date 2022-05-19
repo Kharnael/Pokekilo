@@ -16,8 +16,8 @@ fetchApi = async () => {
         let pokeName = data2.names[4].name;
         test.innerHTML += 
         `
-        <article>
-            <div class="card bg-danger" style="width: 18rem;">
+        <article class="col col-md-6 col-lg-3 d-flex justify-content-center">
+            <div class="card bg-danger">
                 <img src="${imgPoke}" class="card-img-top" alt="${pokeName} picture">
                 <div class="card-body">
                     <h5 class="card-title">${pokeName}</h5>
@@ -26,11 +26,12 @@ fetchApi = async () => {
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-danger"><img src="public/assets/img/${pokeType}.png" alt="${pokeType} picture"></li>
                     <li class="list-group-item bg-danger">${pokeDescription}</li>
-                    <li class="list-group-item bg-danger">Poids : ${pokeWeight}</li>
+                    <li class="list-group-item bg-danger">Poids : ${pokeWeight}kg</li>
                     <li class="list-group-item bg-danger">Pokédex N° : ${pokeId}</li>
                     <li class="list-group-item bg-danger">Prix : ${pokePrice}€</li>
                 </ul>
             </div>
+            
         </article>
  
         `;
