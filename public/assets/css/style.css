@@ -14,7 +14,7 @@
 
 body{
     background-image: url(../img/background-night.png);
-    background-size: 100%;
+    background-size: 100% 100%;
     background-attachment: fixed ;
     font-family: 'Press Start 2P', cursive;
     font-size:  x-small;
@@ -23,6 +23,13 @@ body{
 .card-title {
     font-size: 0.8rem;
     margin-bottom: -15px;
+    background-repeat: no-repeat;
+}
+@media(max-width : 680px){
+    body{
+        background-size: cover;
+    }
+
 }
 
 #pokéTitle {
