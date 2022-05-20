@@ -36,3 +36,15 @@ body{
     /* filter: invert(22%) sepia(56%) saturate(3563%) hue-rotate(338deg) brightness(100%) contrast(83%); */
     
 }
+.cartAdd:hover{
+    filter: brightness(0) saturate(100%) invert(28%) sepia(63%) saturate(2144%) hue-rotate(330deg) brightness(93%) contrast(95%);
+    cursor: pointer;
+}
+
+.dropdown-menu li{
+    margin-top: 3px;
+}
+
+.dropdown-menu li img:hover{
+    cursor: pointer;
+}
