@@ -7,7 +7,7 @@ let cartArray = [];
 addToArray = () => {
     let LSdata = JSON.parse(localStorage.getItem('cartData'));
     LSdata.forEach(element => {
-        cartArray.push({id:`${element.id}`, name:`${element.name}`, price:`${element.price}`, Qty:`${element.Qty}`, totalUnitPrice:`${element.totalUnitPrice}`}); //mettre dans le push les key/value du tablobjet 'cartArray'
+        cartArray.push({id:`${element.id}`, name:`${element.name}`, price:`${element.price}`, Qty:`${element.Qty}`, totalUnitPrice:`${element.totalUnitPrice}`, img:`${element.img}`}); //mettre dans le push les key/value du tablobjet 'cartArray'
     });
 }
 
@@ -42,6 +42,8 @@ addToCart = (pokeId, pokeName, pokeUnitPrice, pokeImg) => {
         cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokeUnitPrice}`, Qty:1, totalUnitPrice:`${pokeUnitPrice}`, img:`${pokeImg}`});
     }
 addToLocalStorage();
+pushToCartModal();
+alert(`${pokeName} a bien été ajouté au panier.`)
 }
 
 //Calcul du prix total
@@ -63,15 +65,27 @@ window.addEventListener('click', (e) => {
         let pokeUnitPrice = e.path[0].nearestViewportElement.dataset.pokeprice;
         addToCart(pokeId, pokeName, pokeUnitPrice, pokeImg);
     }
+    //Enlever 1 unité par pokémongz
+    if (e.target.classList.contains('removeOneBtn')){
+        removeOneByOne(e.target.dataset.pokename);
+    }
+    //Add one by one
+    if (e.target.classList.contains('addOneBtn')){
+        addOneByOne(e.target.dataset.pokename);
+    }
+    //remove toute les quantités de 1 pokemon 
+    if (e.target.classList.contains('removeAllQtyOfOnePoke')) {
+        removeOnePokeTotaly(e.target.dataset.pokename);
+    }
 })
-// idAddToCartFromHTML.addEventListener('click', addToCart())
-// idRemoveFromCartOneByOne.addEventLister('click', removeOneByOne())
+
+
 // idRemoveFromCartOnePokeTotaly.addEventLister('click', removeOnePokeTotaly())
 // idDeleteAllCart.addEventLister('click', deleteAllCart())
 
 //Retirage d'un pokemon par un pokemon
-removeOneByOne = () => {
-    let selectedPokeToRemoveOne = "kikoo" //a changer, value provenant du DOM
+removeOneByOne = (pokename) => {
+    let selectedPokeToRemoveOne = pokename;
     cartArray.forEach((element, index) => {
         if (element.name == selectedPokeToRemoveOne) {
             //si qty 1 et l'utilisateur veut enlever 1, c'est qu'il en veut plus du tout
@@ -82,17 +96,33 @@ removeOneByOne = () => {
             }
         });
         addToLocalStorage(); // MAJ du LS.
+        pushToCartModal(); //MAJ du panier
+}
+
+addOneByOne = (pokename) => {
+    let selectedPokeToAddOne = pokename;
+    cartArray.forEach(element => {
+        if (element.name == selectedPokeToAddOne) {
+            let newQty = parseInt(element.Qty) + 1;
+            parseInt(newQty);
+            element.Qty = newQty;
+            element.totalUnitPrice = element.Qty * element.price;
+            }
+        });
+        addToLocalStorage(); // MAJ du LS.
+        pushToCartModal(); //MAJ du panier
 }
 
 //Retirage de toute les quantité d'un seul pokemon
-removeOnePokeTotaly = () => {
-    let selectedPokeToRemoveCompletely = 'kikoo2'; //value a recup dans le DOM
+removeOnePokeTotaly = (pokename) => {
+    let selectedPokeToRemoveCompletely = pokename;
     cartArray.forEach((element, index) => {
         if (selectedPokeToRemoveCompletely == element.name) {
             cartArray.splice(index, 1);
         }
     });
     addToLocalStorage();
+    pushToCartModal(); //MAJ du panier
 }
 
 //vidange total du panier 
@@ -102,8 +132,9 @@ deleteAllCart = () => {
 }
 
 // Au chargement de la page, si le local storage n'est pas vide
-// alors il alimente le cartArray sinon, bah il se passe rien quoi.
+// alors il alimente le cartArray et le panier sinon, bah il se passe rien quoi.
 if (localStorage.length > 0) {
     console.log('local storage pas vide, ducoup copie du LS dans le Array')
     addToArray();
+    pushToCartModal();
 } else {console.log('local storage vide')}
