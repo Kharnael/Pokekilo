@@ -25,8 +25,15 @@ body{
     margin-bottom: -15px;
 }
 
-.navbar-brand text-warning {
-    font-family: 'Pokemon Solid', sans-serif;                                        
+#pokéTitle {
+    font-family: 'Pokemon Solid', sans-serif!important;
+    font-size: 5rem;
+    position: relative;
+    top: -20px;                
+}
+
+.pokéSubTitle {
+    text-align: center;
 }
 
 .cartAdd{
