@@ -28,14 +28,14 @@ addToCart = (pokeId, pokeName, pokeUnitPrice, pokeImg) => {
 
         //Si le tableau est pas vide et que le pokemon est déja dans le panier, alors ajoute 1 à Qty
     if (resultz != undefined) { 
-                cartArray.forEach(element => {
-                    if (element.name == pokeName) {
-                        element.Qty ++;
-                        //on calcul le prix total(par pokemon) en fonction de la quantité dans la fonction addtocart! 
-                        let newPrice = parseFloat(element.price) * parseFloat(element.Qty);
-                        element.totalUnitPrice = parseFloat(newPrice.toFixed(2));
-                    }
-                })
+        cartArray.forEach(element => {
+            if (element.name == pokeName) {
+                element.Qty ++;
+                //on calcul le prix total(par pokemon) en fonction de la quantité dans la fonction addtocart! 
+                let newPrice = parseFloat(element.price) * parseFloat(element.Qty);
+                element.totalUnitPrice = parseFloat(newPrice.toFixed(2));
+            }
+        })
 
     //Sinon (le pokemon est pas dans le panier donc) ajoute le avec une Qty de 1        
     } else if (resultz == undefined) { 
@@ -55,7 +55,7 @@ calculOfTotalPrice = () => {
     return totalPrice.toFixed(2); //totalPrice DEVIENT UN STRING ATTENTION. le reparse en float si needed.
 }
 
-//eventListener
+//======================== EVENT LISTENER ================================
 window.addEventListener('click', (e) => {
     //Ajouter au panier
     if (e.path[1].classList.contains('cartAdd')){
@@ -80,9 +80,9 @@ window.addEventListener('click', (e) => {
 })
 
 
-// idRemoveFromCartOnePokeTotaly.addEventLister('click', removeOnePokeTotaly())
-// idDeleteAllCart.addEventLister('click', deleteAllCart())
+//==================== FIN DE EVENT LISTENER =============================
 
+//==================== FONCTION DU PANIER ================================
 //Retirage d'un pokemon par un pokemon
 removeOneByOne = (pokename) => {
     let selectedPokeToRemoveOne = pokename;
@@ -125,11 +125,8 @@ removeOnePokeTotaly = (pokename) => {
     pushToCartModal(); //MAJ du panier
 }
 
-//vidange total du panier 
-deleteAllCart = () => {
-    cartArray = [];
-    localStorage.removeItem('cartData');
-}
+
+
 
 // Au chargement de la page, si le local storage n'est pas vide
 // alors il alimente le cartArray et le panier sinon, bah il se passe rien quoi.
@@ -138,3 +135,11 @@ if (localStorage.length > 0) {
     addToArray();
     pushToCartModal();
 } else {console.log('local storage vide')}
+
+//vidange total du panier
+let deleteFullCartBtn = document.getElementById('clearCartBtn');
+deleteFullCartBtn.addEventListener('click', deleteAllCart = () => {
+    cartArray = [];
+    localStorage.removeItem('cartData');
+    pushToCartModal();
+} );
