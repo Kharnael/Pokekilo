@@ -11,7 +11,9 @@
     width: 80px;
     margin: auto;
 }
-
+.pokeDesc{
+    height: 47px;
+}
 body{
     background-image: url(../img/background-night.png);
     background-size: 100% 100%;
@@ -19,6 +21,11 @@ body{
     font-family: 'Press Start 2P', cursive;
     font-size:  x-small;
     }
+
+.dayMode{
+    background-image: url(../img/background.png)!important;
+}
+
 
 .card-title {
     font-size: 0.8rem;
@@ -57,8 +64,8 @@ body{
 .cartAdd{
     filter: brightness(0) invert(1)!important;
     /* filter: invert(22%) sepia(56%) saturate(3563%) hue-rotate(338deg) brightness(100%) contrast(83%); */
-    
 }
+
 .cartAdd:hover{
     filter: brightness(0) saturate(100%) invert(28%) sepia(63%) saturate(2144%) hue-rotate(330deg) brightness(93%) contrast(95%);
     cursor: pointer;
