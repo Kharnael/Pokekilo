@@ -21,10 +21,7 @@ addToLocalStorage = () => {
 //======================= FIN DE GESTION ARRAY / LOCALSTORAGE     =================================
 
 // fonction ajouter au panier
-addToCart = () => {
-    let pokeId = 2;                 //value dans le HTML    => A supprimer une fois les values dispo dans le DOM
-    let pokeName = 'kikoo2';        //value dans le HTML   => A supprimer une fois les values dispo dans le DOM
-    let pokeUnitPrice = 22.3;             //value dans le HTML    => A supprimer une fois les values dispo dans le DOM
+addToCart = (pokeId, pokeName, pokeUnitPrice, pokeImg) => {
 
     // /!\ resultz permet de savoir si le pokemon est DEJA dans le panier. /!\
     let resultz = cartArray.find(nameOf => nameOf.name === pokeName);
@@ -42,7 +39,7 @@ addToCart = () => {
 
     //Sinon (le pokemon est pas dans le panier donc) ajoute le avec une Qty de 1        
     } else if (resultz == undefined) { 
-        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokeUnitPrice}`, Qty:1, totalUnitPrice:`${pokeUnitPrice}`});
+        cartArray.push({id:`${pokeId}`, name:`${pokeName}`, price:`${pokeUnitPrice}`, Qty:1, totalUnitPrice:`${pokeUnitPrice}`, img:`${pokeImg}`});
     }
 addToLocalStorage();
 }
@@ -57,6 +54,16 @@ calculOfTotalPrice = () => {
 }
 
 //eventListener
+window.addEventListener('click', (e) => {
+    //Ajouter au panier
+    if (e.path[1].classList.contains('cartAdd')){
+        let pokeId = e.path[0].nearestViewportElement.dataset.pokeid;
+        let pokeName = e.path[0].nearestViewportElement.dataset.pokename;
+        let pokeImg = e.path[0].nearestViewportElement.dataset.pokeimg;
+        let pokeUnitPrice = e.path[0].nearestViewportElement.dataset.pokeprice;
+        addToCart(pokeId, pokeName, pokeUnitPrice, pokeImg);
+    }
+})
 // idAddToCartFromHTML.addEventListener('click', addToCart())
 // idRemoveFromCartOneByOne.addEventLister('click', removeOneByOne())
 // idRemoveFromCartOnePokeTotaly.addEventLister('click', removeOnePokeTotaly())
