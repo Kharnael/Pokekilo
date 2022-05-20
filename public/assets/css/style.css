@@ -16,3 +16,8 @@ body{
     background-size: 100%;
     background-attachment: fixed ;
 }
+.cartAdd{
+    filter: brightness(0) invert(1);
+    /* filter: invert(22%) sepia(56%) saturate(3563%) hue-rotate(338deg) brightness(100%) contrast(83%); */
+    
+}
