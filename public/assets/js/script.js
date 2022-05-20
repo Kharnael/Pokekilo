@@ -3,19 +3,11 @@ let jsonFile3 = 'https://pokeapi.co/api/v2/pokemon-species/';
 let pokeCatalog = []
 
 fetchApi = async () => {
-<<<<<<< HEAD
-    for (let index = 1; index <= 10; index++) {
-        const response1 = await fetch(jsonFile+index);  //fetch de pokemon
-        const data1 = await response1.json();           //équivaut au 2e then =)
-        const response2 = await fetch(jsonFile3+index); //fetch de species (nom fr)
-        const data2 = await response2.json();           //équivaut au 2e then =)
-=======
     for (let index = 1; index <= 151; index++) {
         const response1 = await fetch(jsonFile + index); //fetch de pokemon
         const data1 = await response1.json(); //équivaut au 2e then =)
         const response2 = await fetch(jsonFile3 + index); //fetch de species (nom fr)
         const data2 = await response2.json(); //équivaut au 2e then =)
->>>>>>> daymode
         pokeWeight = Math.round(data1.weight / 10);
         pokeId = data1.id;
         pokeType = data1.types[0].type.name;
