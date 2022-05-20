@@ -1,3 +1,8 @@
+@font-face {
+    font-family: ;
+    src: url();
+}
+
 .card{
     width: 12rem;
 }
@@ -15,7 +20,17 @@ body{
     background-image: url(../img/background-night.png);
     background-size: 100%;
     background-attachment: fixed ;
+    font-family: 'Press Start 2P', cursive;
+    font-size:  x-small;
+    }
+
+.card-title {
+    font-size: 0.8rem;
+    margin-bottom: -15px;
 }
+
+.navbar-brand text-warning 
+
 .cartAdd{
     filter: brightness(0) invert(1);
     /* filter: invert(22%) sepia(56%) saturate(3563%) hue-rotate(338deg) brightness(100%) contrast(83%); */
