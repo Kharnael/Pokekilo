@@ -22,9 +22,9 @@ addToLocalStorage = () => {
 
 // fonction ajouter au panier
 addToCart = () => {
-    let pokeId = 1;                 //value dans le HTML    => A supprimer une fois les values dispo dans le DOM
-    let pokeName = 'kikoo';        //value dans le HTML   => A supprimer une fois les values dispo dans le DOM
-    let pokeUnitPrice = 15.5;             //value dans le HTML    => A supprimer une fois les values dispo dans le DOM
+    let pokeId = 2;                 //value dans le HTML    => A supprimer une fois les values dispo dans le DOM
+    let pokeName = 'kikoo2';        //value dans le HTML   => A supprimer une fois les values dispo dans le DOM
+    let pokeUnitPrice = 22.3;             //value dans le HTML    => A supprimer une fois les values dispo dans le DOM
 
     // /!\ resultz permet de savoir si le pokemon est DEJA dans le panier. /!\
     let resultz = cartArray.find(nameOf => nameOf.name === pokeName);
@@ -65,10 +65,10 @@ calculOfTotalPrice = () => {
 //Retirage d'un pokemon par un pokemon
 removeOneByOne = () => {
     let selectedPokeToRemoveOne = "kikoo" //a changer, value provenant du DOM
-    cartArray.forEach(element => {
+    cartArray.forEach((element, index) => {
         if (element.name == selectedPokeToRemoveOne) {
             //si qty 1 et l'utilisateur veut enlever 1, c'est qu'il en veut plus du tout
-            if (element.Qty == 1) {removeOnePokeTotaly(selectedPokeToRemoveOne)}
+            if (element.Qty == 1) {cartArray.splice(index, 1);}
             else { 
             element.Qty -= 1;
             element.totalUnitPrice = element.Qty * element.price;}
@@ -78,8 +78,8 @@ removeOneByOne = () => {
 }
 
 //Retirage de toute les quantité d'un seul pokemon
-removeOnePokeTotaly = (selectedPokeToRemoveCompletely) => {
-    // let selectedPokeToRemoveCompletely = 'kikoo2';
+removeOnePokeTotaly = () => {
+    let selectedPokeToRemoveCompletely = 'kikoo2'; //value a recup dans le DOM
     cartArray.forEach((element, index) => {
         if (selectedPokeToRemoveCompletely == element.name) {
             cartArray.splice(index, 1);
