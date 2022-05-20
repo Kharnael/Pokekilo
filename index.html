@@ -7,7 +7,7 @@
     <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/assets/css/style.css">
@@ -17,9 +17,35 @@
 <body>
     <nav class="navbar navbar-light bg-danger sticky-top">
         <div class="container-fluid">
-            <span></span>
-            <a class="navbar-text text-warning text-decoration-none" class="navbar-brand text-warning"><span id="pokéTitle">Pokékilo</span>
-                <div class="pokéSubTitle"> Achetez au Pokégros !</div></a>
+            <span>
+                <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-basket-fill" viewBox="0 0 16 16 ">
+                        <path
+                            d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z" />
+                    </svg>
+                </a>
+
+                <div class="offcanvas offcanvas-start bg-danger" tabindex="-1" id="offcanvasExample"
+                    aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Panier</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div>
+                            Vos pokémon ajouté au panier:
+                        </div>
+                        <ul id="cartWrite">
+                            <li class="border-bottom border-dark border-3">${pokeName} ${imgPoke} ${quantity} (svgdelete)</li>
+                        </ul>
+                    </div>
+                </div>
+            </span>
+            <a class="navbar-text text-warning text-decoration-none" class="navbar-brand text-warning"><span
+                    id="pokéTitle">Pokékilo</span>
+                <div class="pokéSubTitle"> Achetez au Pokégros !</div>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -33,9 +59,6 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Panier</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +83,7 @@
                                 <li><img src="public/assets/img/poison.png" data-type="poison" alt=""></li>
                                 <li><img src="public/assets/img/electric.png" data-type="electric" alt=""></li>
                                 <li><img src="public/assets/img/ice.png" data-type="ice" alt=""></li>
-                                
+
                             </ul>
                         </li>
                     </ul>
@@ -73,17 +96,20 @@
         </div>
     </nav>
 
-    <section class="container d-flex align-item-center justify-content-center " >
+    <section class="container d-flex align-item-center justify-content-center ">
         <div id="test" class="row justify-content-center">
 
         </div>
-        
+
     </section>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="public/assets/js/script.js"></script>
-<script src="public/assets/js/addToCart.js"></script>    
+    <script src="public/assets/js/addToCart.js"></script>
 </body>
+
 </html>
