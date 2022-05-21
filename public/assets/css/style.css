@@ -78,3 +78,20 @@ body{
 .dropdown-menu li img:hover{
     cursor: pointer;
 }
+
+
+.addOneBtn{
+    cursor: pointer;
+}
+
+.removeOneBtn{
+    cursor: pointer;
+}
+
+.removeAllQtyOfOnePoke{
+    cursor: pointer;
+}
+
+#clearCartBtn{
+    cursor: pointer;
+}

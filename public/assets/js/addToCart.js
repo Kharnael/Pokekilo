@@ -64,7 +64,7 @@ window.addEventListener('click', (e) => {
     if (e.path[1].classList.contains('cartAdd')){
         let pokeId = e.path[0].nearestViewportElement.dataset.pokeid;
         let pokeName = e.path[0].nearestViewportElement.dataset.pokename;
-        let pokeImg = e.path[0].nearestViewportElement.dataset.pokeimg;
+        let pokeImg = e.path[0].nearestViewportElement.dataset.pokeico;
         console.log(e.path[0].nearestViewportElement.dataset);
         let pokeUnitPrice = e.path[0].nearestViewportElement.dataset.pokeprice;
         addToCart(pokeId, pokeName, pokeUnitPrice, pokeImg);
