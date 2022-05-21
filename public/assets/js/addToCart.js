@@ -43,7 +43,8 @@ addToCart = (pokeId, pokeName, pokeUnitPrice, pokeImg) => {
     }
 addToLocalStorage();
 pushToCartModal();
-alert(`${pokeName} a bien été ajouté au panier.`)
+calculOfTotalPrice();
+// alert(`${pokeName} a bien été ajouté au panier.`)
 }
 
 //Calcul du prix total
@@ -52,6 +53,8 @@ calculOfTotalPrice = () => {
     cartArray.forEach(element => {
         totalPrice += parseFloat(element.totalUnitPrice);
     });
+    totalPriceCart.innerHTML =
+    `Prix total : ${totalPrice.toFixed(2)}₽`
     return totalPrice.toFixed(2); //totalPrice DEVIENT UN STRING ATTENTION. le reparse en float si needed.
 }
 
@@ -98,6 +101,7 @@ removeOneByOne = (pokename) => {
         });
         addToLocalStorage(); // MAJ du LS.
         pushToCartModal(); //MAJ du panier
+        calculOfTotalPrice();
 }
 
 addOneByOne = (pokename) => {
@@ -112,6 +116,7 @@ addOneByOne = (pokename) => {
         });
         addToLocalStorage(); // MAJ du LS.
         pushToCartModal(); //MAJ du panier
+        calculOfTotalPrice();
 }
 
 //Retirage de toute les quantité d'un seul pokemon
@@ -124,6 +129,7 @@ removeOnePokeTotaly = (pokename) => {
     });
     addToLocalStorage();
     pushToCartModal(); //MAJ du panier
+    calculOfTotalPrice();
 }
 
 
@@ -135,6 +141,7 @@ if (localStorage.length > 0) {
     console.log('local storage pas vide, ducoup copie du LS dans le Array')
     addToArray();
     pushToCartModal();
+    calculOfTotalPrice();
 } else {console.log('local storage vide')}
 
 //vidange total du panier
@@ -143,4 +150,5 @@ deleteFullCartBtn.addEventListener('click', deleteAllCart = () => {
     cartArray = [];
     localStorage.removeItem('cartData');
     pushToCartModal();
+    calculOfTotalPrice();
 } );
