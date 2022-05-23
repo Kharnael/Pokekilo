@@ -58,6 +58,7 @@ fetchApi = async () => {
 
 printPokeCard = () =>{
 
+    test.innerHTML = ''
     pokeCatalog.forEach(element => {
         test.innerHTML +=
         `
