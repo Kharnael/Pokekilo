@@ -68,6 +68,7 @@ window.addEventListener('click', (e) => {
         console.log(e.path[0].nearestViewportElement.dataset);
         let pokeUnitPrice = e.path[0].nearestViewportElement.dataset.pokeprice;
         addToCart(pokeId, pokeName, pokeUnitPrice, pokeImg);
+        playLevelUp();
 
     }
     //Enlever 1 unité par pokémongz
@@ -155,7 +156,6 @@ deleteFullCartBtn.addEventListener('click', deleteAllCart = () => {
 } );
 
 //petit son ajout panier
-let playLevelUp = () => {
-    new Audio('public/assets/sound/levelup.mp3')
-    Audio.volumne = 0.5;
+playLevelUp = () => {
+    new Audio('public/assets/sound/levelup.mp3').play()
 }
