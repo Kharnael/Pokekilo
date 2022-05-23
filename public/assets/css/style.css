@@ -53,6 +53,21 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: -15px;
     background-repeat: no-repeat;
 }
+#pokemonFilter {
+    display: flex;
+}
+.filterGroup {
+    display: flex;
+    align-items: center;
+}
+.removeFilterCross {
+    position: relative;
+    left: -9px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 @media(max-width : 680px) {
     body {
@@ -125,7 +140,7 @@ li {
 
 .pokeSpin {
     animation: BallSpin 2s linear infinite;
-    width: 70vw;
+    width: 45vw;
 }
 
 @keyframes BallSpin {
