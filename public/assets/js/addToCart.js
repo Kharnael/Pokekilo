@@ -54,7 +54,7 @@ calculOfTotalPrice = () => {
         totalPrice += parseFloat(element.totalUnitPrice);
     });
     totalPriceCart.innerHTML =
-    `Prix total : ${totalPrice.toFixed(2)}₽`
+    `total:${totalPrice.toFixed(2)}₽`
     return totalPrice.toFixed(2); //totalPrice DEVIENT UN STRING ATTENTION. le reparse en float si needed.
 }
 
