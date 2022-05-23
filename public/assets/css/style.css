@@ -1,31 +1,52 @@
-.card{
+.card {
     width: 12rem;
 }
 
-.card-img-top{
+.card-img-top {
     width: 3rem;
     height: 3rem;
     margin: auto;
 }
-.list-group-item img{
+
+.list-group-item img {
     width: 80px;
     margin: auto;
 }
-.pokeDesc{
+
+.pokeDesc {
     height: 47px;
 }
-body{
+
+body {
     background-image: url(../img/background-night.png);
     background-size: 100% 100%;
-    background-attachment: fixed ;
+    background-attachment: fixed;
     font-family: 'Press Start 2P', cursive;
-    font-size:  x-small;
-    }
-
-.dayMode{
-    background-image: url(../img/background.png)!important;
+    font-size: x-small;
 }
 
+.dayMode {
+    background-image: url(../img/background.png) !important;
+}
+
+body::-webkit-scrollbar {
+    width: 1rem;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #DC3545;
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #212529;
+    ;
+    /* color of the scroll thumb */
+    /* border-radius: 20px; roundness of the scroll thumb */
+    border: 3px solid #DC3545;
+    /* creates padding around scroll thumb */
+}
 
 .card-title {
     font-size: 0.8rem;
@@ -33,65 +54,86 @@ body{
     background-repeat: no-repeat;
 }
 
-@media(max-width : 680px){
-    body{
+@media(max-width : 680px) {
+    body {
         background-size: cover;
     }
 
 }
 
 #pokéTitle {
-    font-family: 'Pokemon Solid', sans-serif!important;
-    font-size: 5rem;
+    font-family: 'Pokemon Solid', sans-serif !important;
+    font-size: 3rem;
     text-align: center;
     position: relative;
     text-shadow: rgb(13, 110, 253) 5px 0px 0px, rgb(13, 110, 253) 4.90033px 0.993347px 0px, rgb(13, 110, 253) 4.60531px 1.94709px 0px, rgb(13, 110, 253) 4.12668px 2.82321px 0px, rgb(13, 110, 253) 3.48353px 3.58678px 0px, rgb(13, 110, 253) 2.70151px 4.20736px 0px, rgb(13, 110, 253) 1.81179px 4.6602px 0px, rgb(13, 110, 253) 0.849836px 4.92725px 0px, rgb(13, 110, 253) -0.145998px 4.99787px 0px, rgb(13, 110, 253) -1.13601px 4.86924px 0px, rgb(13, 110, 253) -2.08073px 4.54649px 0px, rgb(13, 110, 253) -2.94251px 4.04248px 0px, rgb(13, 110, 253) -3.68697px 3.37732px 0px, rgb(13, 110, 253) -4.28444px 2.57751px 0px, rgb(13, 110, 253) -4.71111px 1.67494px 0px, rgb(13, 110, 253) -4.94996px 0.7056px 0px, rgb(13, 110, 253) -4.99147px -0.291871px 0px, rgb(13, 110, 253) -4.83399px -1.27771px 0px, rgb(13, 110, 253) -4.48379px -2.2126px 0px, rgb(13, 110, 253) -3.95484px -3.05929px 0px, rgb(13, 110, 253) -3.26822px -3.78401px 0px, rgb(13, 110, 253) -2.4513px -4.35788px 0px, rgb(13, 110, 253) -1.53666px -4.75801px 0px, rgb(13, 110, 253) -0.560763px -4.96845px 0px, rgb(13, 110, 253) 0.437495px -4.98082px 0px, rgb(13, 110, 253) 1.41831px -4.79462px 0px, rgb(13, 110, 253) 2.34258px -4.41727px 0px, rgb(13, 110, 253) 3.17346px -3.86382px 0px, rgb(13, 110, 253) 3.87783px -3.15633px 0px, rgb(13, 110, 253) 4.4276px -2.32301px 0px, rgb(13, 110, 253) 4.80085px -1.39708px 0px, rgb(13, 110, 253) 4.98271px -0.415447px 0px;
-    top: -20px;                
+    top: -20px;
 }
 
 .pokéSubTitle {
     text-align: center;
 }
-@media(max-width: 404px){
-    #pokéTitle{
+
+@media(max-width: 404px) {
+    #pokéTitle {
         font-size: 2rem;
     }
-    .pokéSubTitle{
+
+    .pokéSubTitle {
         font-size: smaller;
     }
 }
 
-.cartAdd{
-    filter: brightness(0) invert(1)!important;
+.cartAdd {
+    filter: brightness(0) invert(1) !important;
     /* filter: invert(22%) sepia(56%) saturate(3563%) hue-rotate(338deg) brightness(100%) contrast(83%); */
 }
 
-.cartAdd:hover{
+.cartAdd:hover {
     filter: brightness(0) saturate(100%) invert(28%) sepia(63%) saturate(2144%) hue-rotate(330deg) brightness(93%) contrast(95%);
     cursor: pointer;
 }
 
-.dropdown-menu li{
+.dropdown-menu li {
     margin-top: 3px;
 }
 
-.dropdown-menu li img:hover{
+.dropdown-menu li img:hover {
     cursor: pointer;
 }
 
 
-.addOneBtn{
+.addOneBtn {
     cursor: pointer;
 }
 
-.removeOneBtn{
+.removeOneBtn {
     cursor: pointer;
 }
 
-.removeAllQtyOfOnePoke{
+.removeAllQtyOfOnePoke {
     cursor: pointer;
 }
 
-#clearCartBtn{
+#clearCartBtn {
     cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.pokeSpin {
+    animation: BallSpin 2s linear infinite;
+    width: 70vw;
+}
+
+@keyframes BallSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
