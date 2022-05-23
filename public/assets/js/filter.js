@@ -76,3 +76,6 @@ pokeFilter = (filter) => {
     console.table(filteredResults);
     printPokeCard();
 }
+
+
+document.querySelectorAll('removeFilterCross')
