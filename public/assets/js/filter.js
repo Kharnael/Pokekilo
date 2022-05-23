@@ -63,7 +63,7 @@ for (i = 0; i < selects.length; i++) {
             default:
                 break;
         }
-    pokemonFilter.innerHTML += `<span data-type="${filter}" class="bg-danger text-light"><img src='public/assets/img/${imgFilter}'>&times;</span>`
+    pokemonFilter.innerHTML += `<div class="filterGroup"><img src='public/assets/img/${imgFilter}'><span data-type="${filter}" class="text-danger removeFilterCross">&times;</span></div>`
     })
 }
 
