@@ -74,4 +74,5 @@ pokeFilter = (filter) => {
         }
     });
     console.table(filteredResults);
+    printPokeCard();
 }
