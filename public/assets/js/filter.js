@@ -63,7 +63,7 @@ for (i = 0; i < selects.length; i++) {
             default:
                 break;
         }
-    pokemonFilter.innerHTML += `<img src='public/assets/img/${imgFilter}'>`
+    pokemonFilter.innerHTML += `<span data-type="${filter}" class="bg-danger text-light"><img src='public/assets/img/${imgFilter}'>&times;</span>`
     })
 }
 
