@@ -63,7 +63,7 @@ for (i = 0; i < selects.length; i++) {
             default:
                 break;
         }
-    pokemonFilter.innerHTML += `<div class="filterGroup"><img src='public/assets/img/${imgFilter}'><span data-type="${filter}" class="text-danger removeFilterCross">&times;</span></div>`
+    pokemonFilter.innerHTML += `<div class="filterGroup"><img src='public/assets/img/${imgFilter}'><span data-type="${filter}" class="text-light removeFilterCross">&times;</span></div>`
     })
 }
 
@@ -77,5 +77,15 @@ pokeFilter = (filter) => {
     printPokeCard();
 }
 
+RemoveTypeFilter = () => { 
+    let closeBtns = document.querySelectorAll('removeFilterCross')
+    closeBtns.forEach(element => {
+        closeBtns[i].addEventListener('click', (e) => {
+       
 
-document.querySelectorAll('removeFilterCross')
+        // console.log(closeBtns);
+        
+    });
+
+})
+}
