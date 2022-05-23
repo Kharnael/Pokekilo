@@ -1,7 +1,24 @@
 .card {
     width: 12rem;
 }
+.offcanvas-body::-webkit-scrollbar {
+    width: 1rem;
+    /* width of the entire scrollbar */
+}
 
+.offcanvas-body::-webkit-scrollbar-track {
+    background: #DC3545;
+    /* color of the tracking area */
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb {
+    background-color: #212529;
+    ;
+    /* color of the scroll thumb */
+    /* border-radius: 20px; roundness of the scroll thumb */
+    border: 3px solid #DC3545;
+    /* creates padding around scroll thumb */
+}
 .card-img-top {
     width: 3rem;
     height: 3rem;
@@ -59,6 +76,7 @@ body::-webkit-scrollbar-thumb {
 .filterGroup {
     display: flex;
     align-items: center;
+    margin-left: 18px;
 }
 .removeFilterCross {
     position: relative;
@@ -133,11 +151,21 @@ body::-webkit-scrollbar-thumb {
 #clearCartBtn {
     cursor: pointer;
 }
-
+.btn-dark{
+    margin-bottom: 20px;
+}
 li {
     list-style: none;
 }
-
+#clearTheCart {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding-right: 5%;
+    background-color: #DC3545;
+    width: 100%;
+    z-index: 1;
+}
 .pokeSpin {
     animation: BallSpin 2s linear infinite;
     width: 45vw;
