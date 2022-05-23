@@ -82,7 +82,6 @@ let closeBtns = document.querySelectorAll('removeFilterCross')
 window.addEventListener('click', (e)  => {
 
     if (e.target.classList.contains('removeFilterCross')) {
-        console.log(e);
         for (let index = filteredResults.length - 1; index >= 0; index--) {
             const element = filteredResults[index];
             if (element.type == e.target.dataset.type) {
@@ -92,5 +91,4 @@ window.addEventListener('click', (e)  => {
         e.path[1].remove();
         printPokeCard();
     }
-    
 })
