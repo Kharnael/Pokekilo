@@ -1,6 +1,7 @@
 //filter by type
 const selects = document.querySelectorAll('#offcanvasNavbar > div.offcanvas-body > ul > li.nav-item.dropdown > ul')
-const filteredResults = []
+let filteredResults = [];
+let arrayOfTypeUserWant = [];
 
 for (i = 0; i < selects.length; i++) {
     selects[i].addEventListener('click', (e) => {  
@@ -63,7 +64,7 @@ for (i = 0; i < selects.length; i++) {
             default:
                 break;
         }
-    pokemonFilter.innerHTML += `<div class="filterGroup"><img src='public/assets/img/${imgFilter}'><span data-type="${filter}" class="text-danger removeFilterCross">&times;</span></div>`
+    pokemonFilter.innerHTML += `<div class="filterGroup"><img src='public/assets/img/${imgFilter}'><span data-type="${filter}" class="text-light removeFilterCross">&times;</span></div>`
     })
 }
 
@@ -73,6 +74,21 @@ pokeFilter = (filter) => {
             filteredResults.push({name:element.name, id:element.id, type:element.type, desc:element.desc, price:element.price, sprite:element.sprite, weight:element.weight, icons:element.icons})
         }
     });
-    console.table(filteredResults);
+    arrayOfTypeUserWant.push(filter);
     printPokeCard();
 }
+
+let closeBtns = document.querySelectorAll('removeFilterCross')
+window.addEventListener('click', (e)  => {
+
+    if (e.target.classList.contains('removeFilterCross')) {
+        for (let index = filteredResults.length - 1; index >= 0; index--) {
+            const element = filteredResults[index];
+            if (element.type == e.target.dataset.type) {
+                filteredResults.splice(index, 1)
+            }
+        }
+        e.path[1].remove();
+        printPokeCard();
+    }
+})
